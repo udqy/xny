@@ -4,6 +4,8 @@ from pathlib import Path
 from difflib import SequenceMatcher
 from utils import fzf
 
+from display import display
+
 def search(topic):
     normalized_topic = re.sub(r'[^a-zA-Z0-9]', '', topic.lower())
     matches = []
@@ -38,13 +40,9 @@ def fetch(topic):
     matches = search(topic)
     
     if len(matches) == 1:
-        # match found
-        print(f"|--> Found {topic}")
-        # display logic
-    elif len(matches)<3:
-        # open fzf with only avl matches
+        print(f"|--> Found {matches[0][0]}")
+        display(str(matches[0][0]))
+    elif len(matches)<5:
         fzf(matches)
-        # display logic
     else:
-        print("|--X Couldn't find the specified resource -- try searching with fzf")
         fzf(matches)
