@@ -3,6 +3,8 @@ Learn X in Y minutes for the CLI
 
 Quick setup for testing:
 ```bash
+git clone https://github.com/udqy/xny.git
+cd xny
 python -m venv .venv
 source venv/bin/activate    # for windows: use venv\Scripts\activate
 pip install -r requirements.txt
