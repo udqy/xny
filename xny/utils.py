@@ -18,3 +18,4 @@ def fzf(matches):
     except FileNotFoundError:
         print("|--> fzf command not found. Please install fzf.")
         return None
+    

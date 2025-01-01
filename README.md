@@ -1,21 +1,29 @@
 # xny
 Learn X in Y minutes for the CLI
 
-## To-Do
+Quick setup for testing:
+```bash
+python -m venv .venv
+source venv/bin/activate    # for windows: use venv\Scripts\activate
+pip install -r requirements.txt
+python xny/cli.py --update
+```
 
-### 1. **Maintain Cache**  
-- [ ] Require user to run `--update` on install.  
-- [ ] On `--update`, clone the repository to a specified location.  
-- [ ] Remove all files except markdown files.  
-- [ ] Parse the Markdown files to retain only the important content.  
+Example Usage:
+```bash
+python xny/cli.py javascript
+```
 
-### 2. **Search**  
-- [ ] Allow searching with `xny <term>`.  
-- [ ] Implement fuzzy search for `<term>`.  
-- [ ] Display content from the relevant file for `<term>`.  
-- [ ] Use the default pager (e.g., `less`) to show the content.  
+As of now:
+- Uses the default pager to display content
+- Uses fzf to choose between choices
+- Works on Linux (and WSL)
+- Requires installing [fzf](https://github.com/junegunn/fzf)
+- Requires running with '--update' option on first use  
 
-### 3. **Fzf Integration**  
-- [ ] Run without any arguments to start `fzf` (requires `fzf` installed).  
-- [ ] Add support for `xny --fzf` to enable fuzzy finder mode.  
 
+To Implement:
+- [ ] Implement a custom Pager using Textual
+- [ ] Implement searching in the pager
+- [ ] Implement a custom fzf window 
+- [ ] Make cross platform

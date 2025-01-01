@@ -66,3 +66,4 @@ def update_cache():
     print(f"|--> Created new cache directory at {CACHE_DIR}")
     git_clone()
     clean_repo()
+    print(f"|--> Cache Updated")

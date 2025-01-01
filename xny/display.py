@@ -5,5 +5,8 @@ def display(file_path):
     console = Console()
     with open(file_path, "r") as f:
         markdown_text = f.read()
+    
     markdown = Markdown(markdown_text)
-    console.print(markdown)
+    # Use the default pager to display the markdown content
+    with console.pager():
+        console.print(markdown)    
