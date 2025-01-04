@@ -6,7 +6,7 @@ Quick setup for testing:
 git clone https://github.com/udqy/xny.git
 cd xny
 python -m venv .venv
-source venv/bin/activate    # for windows: use venv\Scripts\activate
+source .venv/bin/activate    # for windows: use venv\Scripts\activate
 pip install -r requirements.txt
 python xny/cli.py --update
 ```
