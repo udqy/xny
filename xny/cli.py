@@ -5,6 +5,12 @@ from utils import fzf
 from fetch import CACHE_DIR
 from pathlib import Path
 
+def ensure_cache_initialized():
+    cache_path = Path(CACHE_DIR)
+    if not cache_path.exists():
+        print(f"|--> Cache directory {CACHE_DIR} not found. Initializing...")
+        update_cache()
+
 def main():
     parser = argparse.ArgumentParser(description="Learn X in Y Minutes CLI")
     parser.add_argument("--update", action="store_true", help="Update cache")
@@ -13,8 +19,10 @@ def main():
 
     args, unknown_args = parser.parse_known_args()
 
+    ensure_cache_initialized()
+
     if unknown_args:
-        print("Unrecognized arguments:\n" + "\n".join(f" {arg}" for arg in unknown_args) + "\n")
+        print("|--> Unrecognized arguments:\n" + "\n".join(f" {arg}" for arg in unknown_args) + "\n")
         parser.print_help()
     elif args.update:
         update_cache()
