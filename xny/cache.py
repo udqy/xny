@@ -2,15 +2,6 @@ import os
 import shutil
 import subprocess
 
-'''
-CACHE_DIR -> default directory to store the files
-
-git_clone()
-clean_repo()
-update_cache()
-'''
-
-
 CACHE_DIR = os.path.join(os.path.expanduser("~"), ".xny")
 
 def git_clone():
@@ -19,7 +10,6 @@ def git_clone():
     subprocess.run(["git", "clone", "--quiet", repo_url, CACHE_DIR], check=True)
 
 def delete_files():
-   print("|--> Deleting Unnecessary Files")
    unwanted_files = [
        "README.md",
        "CONTRIBUTING.md", 
@@ -38,7 +28,6 @@ def delete_files():
                os.remove(file_path)
 
 def delete_language_folders():
-   print("|--> Deleting Language Folders")
    language_folders = [
        'ar', 'be', 'bg', 'ca', 'cs', 'de', 'el', 'es', 'fa', 
        'fi', 'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko',
